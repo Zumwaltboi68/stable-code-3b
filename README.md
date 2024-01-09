@@ -167,7 +167,7 @@ As a base model, this model may exhibit unreliable, unsafe, or other undesirable
 
 ```bibtex
 @misc{stable-code-completion-1.0-3b,
-      url={[https://huggingface.co/stabilityai/stablecode-3b](https://huggingface.co/stabilityai/stablecode-3b)},
+      url={[https://huggingface.co/stabilityai/stable-code-completion-1.0-3b](https://huggingface.co/stabilityai/stable-code-completion-1.0-3b)},
       title={Stable Code 3B},
       author={Pinnaparaju, Nikhil and Adithyan, Reshinth and Phung, Duy and Tow, Jonathan and Baicoianu, James and  and Cooper, Nathan}
 }
