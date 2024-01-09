@@ -1,5 +1,5 @@
 ---
 license: other
-license_name: license
+license_name: stability
 license_link: LICENSE
 ---
