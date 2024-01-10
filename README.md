@@ -16,11 +16,11 @@ metrics:
 - code_eval
 library_name: transformers
 ---
-# `stable-code-completion-1.0-3b`
+# `stable-code-3b`
 
 ## Model Description
 
-`stable-code-completion-1.0-3b` is a 2.7B billion parameter decoder-only language model pre-trained on 1.3 trillion tokens of diverse textual and code datasets. `stable-code-completion-1.0-3b` is trained on nearly 20 programming languages (selected based on the 2023 StackOverflow Developer Survey) and demonstrates state-of-the-art performance (compared to models of similar size) on the MultiPL-E metrics across multiple programming languages tested using [BigCode's Evaluation Harness](https://github.com/bigcode-project/bigcode-evaluation-harness/tree/main).
+`stable-code-3b` is a 2.7B billion parameter decoder-only language model pre-trained on 1.3 trillion tokens of diverse textual and code datasets. `stable-code-3b` is trained on nearly 20 programming languages (selected based on the 2023 StackOverflow Developer Survey) and demonstrates state-of-the-art performance (compared to models of similar size) on the MultiPL-E metrics across multiple programming languages tested using [BigCode's Evaluation Harness](https://github.com/bigcode-project/bigcode-evaluation-harness/tree/main).
 
 **Key Features**
 * Fill in Middle Capability (FIM)
@@ -28,23 +28,19 @@ library_name: transformers
 
 ## Usage
 
-Get started generating text with `stable-code-completion-1.0-3b` by using the following code snippet:
+Get started generating text with `stable-code-3b` by using the following code snippet:
 
 ```python
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
-tokenizer = AutoTokenizer.from_pretrained("stabilityai/stable-code-completion-1.0-3b", trust_remote_code=True)
+tokenizer = AutoTokenizer.from_pretrained("stabilityai/stable-code-3b", trust_remote_code=True)
 model = AutoModelForCausalLM.from_pretrained(
-  "stabilityai/stable-code-completion-1.0-3b",
+  "stabilityai/stable-code-3b",
   trust_remote_code=True,
   torch_dtype="auto",
 )
-
-device = "cpu"
-if torch.cuda.is_available():
-  device = "cuda"
-
-inputs = tokenizer("import torch\nimport torch.nn as nn", return_tensors="pt").to(device)
+model.cuda()
+inputs = tokenizer("import torch\nimport torch.nn as nn", return_tensors="pt").to(model.device)
 tokens = model.generate(
   **inputs,
   max_new_tokens=48,
@@ -61,19 +57,15 @@ print(tokenizer.decode(tokens[0], skip_special_tokens=True))
 
 ```python
 from transformers import AutoModelForCausalLM, AutoTokenizer
-tokenizer = AutoTokenizer.from_pretrained("stabilityai/stable-code-completion-1.0-3b", trust_remote_code=True)
+tokenizer = AutoTokenizer.from_pretrained("stabilityai/stable-code-3b", trust_remote_code=True)
 model = AutoModelForCausalLM.from_pretrained(
-  "stabilityai/stable-code-completion-1.0-3b",
+  "stabilityai/stable-code-3b",
   trust_remote_code=True,
   torch_dtype="auto",
 + attn_implementation="flash_attention_2",
 )
-
-device = "cpu"
-if torch.cuda.is_available():
-  device = "cuda"
-
-inputs = tokenizer("<fim_prefix>def fib(n):<fim_suffix>    else:\n        return fib(n - 2) + fib(n - 1)<fim_middle>", return_tensors="pt").to("cuda")
+model.cuda()
+inputs = tokenizer("<fim_prefix>def fib(n):<fim_suffix>    else:\n        return fib(n - 2) + fib(n - 1)<fim_middle>", return_tensors="pt").to(model.device)
 tokens = model.generate(
   **inputs,
   max_new_tokens=48,
@@ -92,19 +84,15 @@ print(tokenizer.decode(tokens[0], skip_special_tokens=True))
 
 ```python
 from transformers import AutoModelForCausalLM, AutoTokenizer
-tokenizer = AutoTokenizer.from_pretrained("stabilityai/stable-code-completion-1.0-3b", trust_remote_code=True)
+tokenizer = AutoTokenizer.from_pretrained("stabilityai/stable-code-3b", trust_remote_code=True)
 model = AutoModelForCausalLM.from_pretrained(
-  "stabilityai/stable-code-completion-1.0-3b",
+  "stabilityai/stable-code-3b",
   trust_remote_code=True,
   torch_dtype="auto",
 + attn_implementation="flash_attention_2",
 )
-
-device = "cpu"
-if torch.cuda.is_available():
-  device = "cuda"
-
-inputs = tokenizer("import torch\nimport torch.nn as nn", return_tensors="pt").to("cuda")
+model.cuda()
+inputs = tokenizer("import torch\nimport torch.nn as nn", return_tensors="pt").to(model.device)
 tokens = model.generate(
   **inputs,
   max_new_tokens=48,
@@ -120,7 +108,7 @@ print(tokenizer.decode(tokens[0], skip_special_tokens=True))
 ## Model Details
 
 * **Developed by**: [Stability AI](https://stability.ai/)
-* **Model type**: `stable-code-completion-1.0-3b` models are auto-regressive language models based on the transformer decoder architecture.
+* **Model type**: `stable-code-3b` models are auto-regressive language models based on the transformer decoder architecture.
 * **Language(s)**: English, Code
 * **Library**: [GPT-NeoX](https://github.com/EleutherAI/gpt-neox)
 * **License**: Other
@@ -149,7 +137,7 @@ The model is pre-trained on the aforementioned datasets in `bfloat16` precision,
 
 ### Training Infrastructure
 
-* **Hardware**: `stable-code-completion-1.0-3b` was trained on the Stability AI cluster across 256 NVIDIA A100 40GB GPUs (AWS P4d instances).
+* **Hardware**: `stable-code-3b` was trained on the Stability AI cluster across 256 NVIDIA A100 40GB GPUs (AWS P4d instances).
 
 * **Software**: We use a fork of `gpt-neox` ([EleutherAI, 2021](https://github.com/EleutherAI/gpt-neox)), train under 2D parallelism (Data and Tensor Parallel) with ZeRO-1 ([Rajbhandari et al., 2019](https://arxiv.org/abs/1910.02054v3)), and rely on flash-attention as well as SwiGLU and Rotary Embedding kernels from FlashAttention-2 ([Dao et al., 2023](https://tridao.me/publications/flash2/flash2.pdf))
 
@@ -166,8 +154,8 @@ As a base model, this model may exhibit unreliable, unsafe, or other undesirable
 ## How to Cite
 
 ```bibtex
-@misc{stable-code-completion-1.0-3b,
-      url={[https://huggingface.co/stabilityai/stable-code-completion-1.0-3b](https://huggingface.co/stabilityai/stable-code-completion-1.0-3b)},
+@misc{stable-code-3b,
+      url={[https://huggingface.co/stabilityai/stable-code-3b](https://huggingface.co/stabilityai/stable-code-3b)},
       title={Stable Code 3B},
       author={Pinnaparaju, Nikhil and Adithyan, Reshinth and Phung, Duy and Tow, Jonathan and Baicoianu, James and  and Cooper, Nathan}
 }
