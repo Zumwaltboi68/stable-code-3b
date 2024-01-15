@@ -20,7 +20,7 @@ library_name: transformers
 
 ## Model Description
 
-`stable-code-3b` is a 2.7B billion parameter decoder-only language model pre-trained on 1.3 trillion tokens of diverse textual and code datasets. `stable-code-3b` is trained on nearly 20 programming languages (selected based on the 2023 StackOverflow Developer Survey) and demonstrates state-of-the-art performance (compared to models of similar size) on the MultiPL-E metrics across multiple programming languages tested using [BigCode's Evaluation Harness](https://github.com/bigcode-project/bigcode-evaluation-harness/tree/main).
+`stable-code-3b` is a 2.7B billion parameter decoder-only language model pre-trained on 1.3 trillion tokens of diverse textual and code datasets. `stable-code-3b` is trained on 18 programming languages (selected based on the 2023 StackOverflow Developer Survey) and demonstrates state-of-the-art performance (compared to models of similar size) on the MultiPL-E metrics across multiple programming languages tested using [BigCode's Evaluation Harness](https://github.com/bigcode-project/bigcode-evaluation-harness/tree/main).
 
 **Key Features**
 * Fill in Middle Capability (FIM)
