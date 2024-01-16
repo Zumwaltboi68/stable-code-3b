@@ -15,6 +15,69 @@ tags:
 metrics:
 - code_eval
 library_name: transformers
+model-index:
+- name: StarCoderBase-3B
+  results:
+  - task:
+      type: text-generation
+    dataset:
+      type: nuprl/MultiPL-E
+      name: MultiPL-HumanEval (Python)
+    metrics:
+    - name: pass@1
+      type: pass@1
+      value: 32.4
+      verified: false
+  - task:
+      type: text-generation
+    dataset:
+      type: nuprl/MultiPL-E
+      name: MultiPL-HumanEval (C++)
+    metrics:
+    - name: pass@1
+      type: pass@1
+      value: 30.9
+      verified: false
+  - task:
+      type: text-generation
+    dataset:
+      type: nuprl/MultiPL-E
+      name: MultiPL-HumanEval (Java)
+    metrics:
+    - name: pass@1
+      type: pass@1
+      value: 32.1
+      verified: false
+  - task:
+      type: text-generation
+    dataset:
+      type: nuprl/MultiPL-E
+      name: MultiPL-HumanEval (JavaScript)
+    metrics:
+    - name: pass@1
+      type: pass@1
+      value: 32.1
+      verified: false
+  - task:
+      type: text-generation
+    dataset:
+      type: nuprl/MultiPL-E
+      name: MultiPL-HumanEval (PHP)
+    metrics:
+    - name: pass@1
+      type: pass@1
+      value: 24.2
+      verified: false
+  - task:
+      type: text-generation
+    dataset:
+      type: nuprl/MultiPL-E
+      name: MultiPL-HumanEval (Rust)
+    metrics:
+    - name: pass@1
+      type: pass@1
+      value: 23.0
+      verified: false
 ---
 # `stable-code-3b`
 
