@@ -97,7 +97,6 @@ model-index:
 | Replit Code V1.5 | 3B   | 23.0%  | 25.9%| 26.2%      | 23.6%| 23.2%| 21.5%|
 | Deci Coder       | 1B   | 19.1%  | 6.8% | 18.4%      | 16.7%| 2.1% | 1.7% |
 
-
 **Key Features**
 * Fill in Middle Capability (FIM)
 * Supports Long Context, trained with Sequences upto 16,384
@@ -206,6 +205,26 @@ The model is a decoder-only transformer similar to the LLaMA ([Touvron et al., 2
 ### Training Dataset
 
 The dataset is comprised of a filtered mixture of open-source large-scale datasets available on the [HuggingFace Hub](https://huggingface.co/datasets): Falcon RefinedWeb extract ([Penedo et al., 2023](https://huggingface.co/datasets/tiiuae/falcon-refinedweb)), along with [CommitPackFT](https://huggingface.co/datasets/bigcode/commitpackft) and [Github Issues](https://huggingface.co/datasets/bigcode/the-stack-github-issues) (BigCode., 2023), and StarCoder ([Li et al., 2023](https://arxiv.org/abs/2305.06161)). We further supplement our training with data from mathematical domains ([Azerbayev, Zhangir, et al., 2023](https://arxiv.org/abs/2310.10631) and, [Yu, Longhui, et al., 2023](https://arxiv.org/abs/2309.12284)). 
+
+Top 18 programming languages trained on:
+- C
+- CPP
+- Java
+- JavaScript
+- CSS
+- Go
+- HTML
+- Ruby
+- Rust
+- Markdown
+- Shell
+- Php
+- Sql
+- R
+- Typescript
+- Python
+- Jupyter-Clean
+- RestructuredText
 
 ### Training Procedure
 
