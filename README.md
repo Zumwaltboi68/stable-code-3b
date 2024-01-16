@@ -87,6 +87,16 @@ model-index:
 
 ![performance](stable_code_3b_evals.png)
 
+| Model            | Size | Python | C++  | Javascript | Java | PHP  | Rust |
+|------------------|------|--------|------|------------|------|------|------|
+| Stable Code 3B   | 3B   | 32.4%  | 30.9%| 32.1%      | 32.1%| 24.2%| 23.0%|
+| Deepseek Coder   | 1.3B | 28.6%  | 29.2%| 28.7%      | 29.0%| 23.6%| 18.5%|
+| Wizard Coder     | 3B   | 31.6%  | 25.6%| 26.2%      | 25.8%| 25.3%| 20.4%|
+| StarCoder        | 3B   | 21.6%  | 19.8%| 21.5%      | 20.5%| 19.0%| 16.9%|
+| Replit Code V1.5 | 3B   | 23.0%  | 25.9%| 26.2%      | 23.6%| 23.2%| 21.5%|
+| Deci Coder       | 1B   | 19.1%  | 6.8% | 18.4%      | 16.7%| 2.1% | 1.7% |
+
+
 **Key Features**
 * Fill in Middle Capability (FIM)
 * Supports Long Context, trained with Sequences upto 16,384
