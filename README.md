@@ -207,6 +207,8 @@ The model is a decoder-only transformer similar to the LLaMA ([Touvron et al., 2
 The dataset is comprised of a filtered mixture of open-source large-scale datasets available on the [HuggingFace Hub](https://huggingface.co/datasets): Falcon RefinedWeb extract ([Penedo et al., 2023](https://huggingface.co/datasets/tiiuae/falcon-refinedweb)), along with [CommitPackFT](https://huggingface.co/datasets/bigcode/commitpackft) and [Github Issues](https://huggingface.co/datasets/bigcode/the-stack-github-issues) (BigCode., 2023), and StarCoder ([Li et al., 2023](https://arxiv.org/abs/2305.06161)). We further supplement our training with data from mathematical domains ([Azerbayev, Zhangir, et al., 2023](https://arxiv.org/abs/2310.10631) and, [Yu, Longhui, et al., 2023](https://arxiv.org/abs/2309.12284)). 
 
 Top 18 programming languages trained on:
+<details>
+<summary> Click to expand </summary>
 - C
 - CPP
 - Java
@@ -225,6 +227,7 @@ Top 18 programming languages trained on:
 - Python
 - Jupyter-Clean
 - RestructuredText
+</details>
 
 ### Training Procedure
 
