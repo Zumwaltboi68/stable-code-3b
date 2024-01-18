@@ -186,7 +186,7 @@ print(tokenizer.decode(tokens[0], skip_special_tokens=True))
 * **Model type**: `stable-code-3b` models are auto-regressive language models based on the transformer decoder architecture.
 * **Language(s)**: English, Code
 * **Library**: [GPT-NeoX](https://github.com/EleutherAI/gpt-neox)
-* **License**: Other
+* **License**: License: StabilityAI Non-Commercial Research Community License. If you want to use this model for your commercial products or purposes, please contact us [here](https://stability.ai/membership) to learn more.
 * **Contact**: For questions and comments about the model, please email `lm@stability.ai`
 
 ### Model Architecture
