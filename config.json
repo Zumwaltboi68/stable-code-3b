@@ -26,5 +26,6 @@
   "torch_dtype": "bfloat16",
   "transformers_version": "4.36.2",
   "use_cache": true,
+  "use_qkv_bias": false,
   "vocab_size": 50304
 }
